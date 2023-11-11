@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+
+// modfiy content view to our liking (title font in space/portal green
 struct CustomContentView: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundColor(Color.blue)
+            .foregroundColor(Color.green)
             .font(.title3)
             .cornerRadius(10)
     }

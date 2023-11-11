@@ -12,51 +12,50 @@ struct RMCharacterDetailsView: View {
     let character: RMCharacterModel
     
     var body: some View {
-        Label("Character  Info", systemImage: "info.square")
-            .labelStyle(IconLabelStyle())
-            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+        Label {
+            Text("Character Info")
+            .font(.title)
             .fontWeight(.heavy)
-        
-        VStack {
+        } icon: {
+            Text("🛸")
+    }
+        .labelStyle(IconLabelStyle())
+            
+        VStack(spacing: 10) {
             RMCharacterListView(character: character)
             
             VStack(spacing: 10) {
-                RMCharacterListView(character: character)
+                Text("**ID**: \(viewModel.characterInfo?.id ?? 0)")
+                    .customContentView()
                 
-                VStack(spacing: 10) {
-                    Text("**ID**: \(viewModel.characterInfo?.id ?? 0)")
-                    
-                        .customContentView()
-                    Text("**Status**: \(viewModel.characterInfo?.status ?? "")")
-                    
-                        .customContentView()
-                    Text("**Species**: \(viewModel.characterInfo?.species ?? "")")
-                    
-                        .customContentView()
-                    Text("**Type**: \(viewModel.characterInfo?.type ?? "")")
-                    
-                        .customContentView()
-                    Text("**Gender**: \(viewModel.characterInfo?.gender ?? "")")
-                    
-                        .customContentView()
-                    
-                    
-                    
-                }
+                Text("**Status**: \(viewModel.characterInfo?.status ?? "")")
+                    .customContentView()
                 
+                Text("**Species**: \(viewModel.characterInfo?.species ?? "")")
+                    .customContentView()
+                
+                Text("**Type**: \(viewModel.characterInfo?.type ?? "")")
+                    .customContentView()
+                
+                Text("**Gender**: \(viewModel.characterInfo?.gender ?? "")")
+                    .customContentView()
                 
             }
-            .onAppear(){
-                viewModel.getDetails(character: character)
+            
+        }
+           
+        .onAppear(){
+        viewModel.getDetails(character: character)
             }
         }
     }
     
+    //preview w test Rick Sanchez char
     struct RMCharacterDetailsView_Previews: PreviewProvider {
         static var previews: some View {
             RMCharacterDetailsView(character: RMCharacterModel.testChar)
                 .environmentObject(RMCharacterViewModel())
         }
-    }
 }
+
     

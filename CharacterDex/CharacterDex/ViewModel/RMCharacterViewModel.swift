@@ -14,18 +14,24 @@ final class RMCharacterViewModel: ObservableObject{
     @Published var searchParams = ""
     
     
+    //search bar logic
     var searchFilterCharacters: [RMCharacterModel] {
         return searchParams == "" ? characterList : characterList.filter {
             $0.name.contains(searchParams)
         }
     }
     
+    // char list variable
     @Published var characterList = [RMCharacterModel]()
     
+    
+    
+    // initializer
     init() {
         fetchCharacter()
     }
     
+    //get characters
     func fetchCharacter() {
         apiCharService.getCharacters() { characters in
             DispatchQueue.main.async {
@@ -34,6 +40,7 @@ final class RMCharacterViewModel: ObservableObject{
         }
     }
     
+    //get by id
     func getCharacterById(character: RMCharacterModel) -> Int {
         if let index = characterList.firstIndex(of: character) {
             return index + 1
@@ -42,6 +49,7 @@ final class RMCharacterViewModel: ObservableObject{
     }
     
     
+    //get details
     func getDetails(character: RMCharacterModel) {
         let id = getCharacterById(character: character)
         

@@ -21,3 +21,4 @@ struct RMCharacterModel: Codable, Identifiable, Equatable{
     //test Charcter form the API (Spiky haired scientist)
     static var testChar = RMCharacterModel(name: "Rick Sanchez", url: "https://rickandmortyapi.com/api/character/1")
 }
+

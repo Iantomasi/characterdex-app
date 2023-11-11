@@ -12,6 +12,8 @@ struct RMCharacterListView: View {
     let character: RMCharacterModel
     let dimensions: Double = 140
     
+    
+    // formatting the view of all the characters retrieved from the api to be shown as a list of rounded rectangle images with their name at the bottom
     var body: some View {
         VStack {
             AsyncImage(url: URL(string: "https://rickandmortyapi.com/api/character/avatar//\(viewModel.getCharacterById(character: character)).jpeg")) { image in
@@ -24,7 +26,7 @@ struct RMCharacterListView: View {
                     .frame(width: dimensions, height: dimensions)
             }
             .background(.thinMaterial)
-            .clipShape(Rectangle())
+            .clipShape(RoundedRectangle(cornerRadius: 10))
             
             Text("\(character.name.capitalized)")
                 .font(.system(size: 16, weight: .regular, design: .monospaced))
@@ -35,9 +37,10 @@ struct RMCharacterListView: View {
     }
 }
 
-
-
-#Preview {
-    RMCharacterListView(character: RMCharacterModel.testChar)
-        .environmentObject(RMCharacterViewModel())
+//preview w test Rick Sanchez char
+struct  RMCharacterListView_Previews: PreviewProvider {
+    static var previews: some View {
+        RMCharacterListView(character: RMCharacterModel.testChar)
+            .environmentObject(RMCharacterViewModel())
+    }
 }
