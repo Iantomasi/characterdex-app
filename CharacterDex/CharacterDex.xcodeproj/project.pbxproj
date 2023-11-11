@@ -51,6 +51,13 @@
 		14768EC82B00014A0038DC0E /* CharacterDex */ = {
 			isa = PBXGroup;
 			children = (
+				14768ED72B0007040038DC0E /* Model */,
+				14768ED82B00070E0038DC0E /* ViewModel */,
+				14768ED92B0007210038DC0E /* View */,
+				14768EDB2B00073E0038DC0E /* Services */,
+				14768EDC2B0007500038DC0E /* Helpers */,
+				14768EDD2B0009AE0038DC0E /* Styles */,
+				14768EDE2B0009BB0038DC0E /* ViewModifiers */,
 				14768EC92B00014A0038DC0E /* CharacterDexApp.swift */,
 				14768ECB2B00014A0038DC0E /* ContentView.swift */,
 				14768ECD2B00014C0038DC0E /* Assets.xcassets */,
@@ -65,6 +72,55 @@
 				14768ED02B00014C0038DC0E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		14768ED72B0007040038DC0E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		14768ED82B00070E0038DC0E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		14768ED92B0007210038DC0E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		14768EDB2B00073E0038DC0E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		14768EDC2B0007500038DC0E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		14768EDD2B0009AE0038DC0E /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		14768EDE2B0009BB0038DC0E /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
