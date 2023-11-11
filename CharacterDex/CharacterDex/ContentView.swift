@@ -8,14 +8,33 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var viewModel = RMCharacterViewModel()
+    
+    private let adaptiveColumns = [
+        GridItem(.adaptive(minimum: 150))
+    ]
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            ScrollView {
+                LazyVGrid(columns: adaptiveColumns, spacing: 10) {
+                    ForEach(viewModel.searchFilterCharacters) { character in
+                        NavigationLink(destination: RMCharacterDetailsView(character: character)) {
+                            RMCharacterListView(character: character)
+                        }
+                        
+                    }
+                }
+                .animation(.easeIn(duration: 0.3), value: viewModel.searchFilterCharacters.count)
+                .navigationTitle("Iantomasi's  Rick & Morty Character Dex")
+                .navigationBarTitleDisplayMode(.inline)
+            }
+            .searchable(text: $viewModel.searchParams)
+         
         }
-        .padding()
+        .environmentObject(viewModel)
+      
+  
     }
 }
 
